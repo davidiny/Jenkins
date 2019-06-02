@@ -18,31 +18,31 @@ pipeline {
         }
         stage ('Test') {
             steps {
-                'echo Testing'
+                sh 'echo "Testing"'
             }
         }
         stage ('Deploy') {
             steps {
-             'echo Deploy'
+                sh 'echo "Deploy"'
             }
         }
     }
     post {
         always {
-            echo 'This will always run'
+            sh 'echo "This will always run"'
         }
         success {
-            echo 'It was completed perfectly'
+            sh 'echo "It was completed perfectly"'
         }
         failure {
-            echo 'It failed.  Sorry'
+            sh 'echo "It failed.  Sorry"'
         }
         unstable {
-            echo 'This will run only if the run was marked as unstable'
+            sh 'echo "This will run only if the run was marked as unstable"'
         }
         changed {
-            echo 'This will run only if the state of the Pipeline has changed'
-            echo 'for example, if the Pipeline was previously failing but is now successful'
+            sh 'echo "This will run only if the state of the Pipeline has changed"'
+            sh 'echo "for example, if the Pipeline was previously failing but is now successful"'
         }
     }
     
